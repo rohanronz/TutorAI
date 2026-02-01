@@ -28,7 +28,7 @@ export function Hero() {
         </motion.div>
 
         {/* Headline */}
-        <motion.h1
+        <motion.h2
           initial={{ y: 24, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           transition={{ duration: 0.6, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
@@ -39,7 +39,7 @@ export function Hero() {
           <span className="bg-gradient-to-r from-[var(--accent)] via-[#a78bfa] to-[#f472b6] bg-clip-text text-transparent">
             interactive AI
           </span>
-        </motion.h1>
+        </motion.h2>
 
         {/* Subhead */}
         <motion.p
