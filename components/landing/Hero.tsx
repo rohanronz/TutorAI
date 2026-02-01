@@ -32,7 +32,7 @@ export function Hero() {
           initial={{ y: 24, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           transition={{ duration: 0.6, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
-          className="text-5xl font-bold tracking-tight text-white sm:text-7xl lg:text-8xl"
+          className="text-4xl font-bold tracking-tight text-white sm:text-6xl lg:text-7xl"
         >
           The next generation of
           <br />
