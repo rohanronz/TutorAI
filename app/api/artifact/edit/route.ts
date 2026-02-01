@@ -21,7 +21,6 @@ export async function POST(req: NextRequest) {
       { role: "assistant", content: existingContent },
       { role: "user", content: editPrompt },
     ],
-    // @ts-expect-error - metadata is valid for C1 Artifact API
     metadata: {
       thesys: JSON.stringify({
         c1_artifact_type: artifactType,

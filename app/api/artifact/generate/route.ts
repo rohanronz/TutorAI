@@ -35,7 +35,6 @@ export async function POST(req: NextRequest) {
     model: "c1/artifact/v-20251030",
     messages,
     stream: true,
-    // @ts-expect-error - metadata is valid for C1 Artifact API
     metadata: {
       thesys: JSON.stringify({
         c1_artifact_type: artifactType,

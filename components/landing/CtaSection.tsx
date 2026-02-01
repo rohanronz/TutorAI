@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { LoadingLink } from "./LoadingLink";
 import { motion } from "motion/react";
 
 export function CtaSection() {
@@ -24,13 +25,13 @@ export function CtaSection() {
             Bring an interactive chatbot to your product in minutes.
           </p>
           <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row sm:flex-wrap">
-            <Link
+            <LoadingLink
               href="/tutor"
-              className="group relative inline-flex h-14 items-center justify-center overflow-hidden rounded-full bg-[var(--accent)] px-10 text-base font-semibold text-white transition-all hover:bg-[var(--accent-hover)] hover:shadow-[0_0_32px_rgba(139,92,246,0.5)] active:scale-95"
+              className="group relative inline-flex h-14 items-center justify-center overflow-hidden rounded-full bg-[var(--accent)] px-10 text-base font-semibold text-white transition-all hover:bg-[var(--accent-hover)] hover:shadow-[0_0_32px_rgba(139,92,246,0.5)] active:scale-95 disabled:pointer-events-none disabled:opacity-90"
             >
               <span className="relative z-10">Get started for free</span>
               <div className="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/20 to-transparent transition-transform duration-500 group-hover:translate-x-full" />
-            </Link>
+            </LoadingLink>
             <Link
               href="/artifacts"
               className="inline-flex h-14 items-center justify-center rounded-full border border-white/10 bg-white/5 px-10 text-base font-semibold text-white backdrop-blur-md transition-all hover:border-white/20 hover:bg-white/10 active:scale-95"

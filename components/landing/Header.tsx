@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { LoadingLink } from "./LoadingLink";
 import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "motion/react";
 
@@ -56,12 +57,12 @@ export function Header() {
           >
             Reports & Slides
           </Link>
-          <Link
+          <LoadingLink
             href="/tutor"
-            className="rounded-full bg-white px-5 py-2 text-sm font-bold text-black transition-all hover:bg-white/90 hover:scale-105 active:scale-95 shadow-lg shadow-white/5"
+            className="inline-flex items-center justify-center rounded-full bg-white px-5 py-2 text-sm font-bold text-black transition-all hover:bg-white/90 hover:scale-105 active:scale-95 shadow-lg shadow-white/5 disabled:pointer-events-none disabled:opacity-90"
           >
             Get started
-          </Link>
+          </LoadingLink>
         </div>
       </div>
     </motion.header>

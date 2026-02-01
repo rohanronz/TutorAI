@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect, useRef, ReactNode } from "react";
+import Link from "next/link";
 import { C1Component, ThemeProvider } from "@thesysai/genui-sdk";
 import { themePresets } from "@crayonai/react-ui";
 import { motion, AnimatePresence } from "motion/react";
@@ -286,6 +287,20 @@ export default function TutorPage() {
                     </div>
                     <span className="text-white font-medium">AI Tutor</span>
                   </div>
+                  <Link
+                    href="/artifacts"
+                    className="flex items-center gap-2 px-4 py-2 rounded-lg bg-purple-600 hover:bg-purple-500 text-white text-sm font-medium transition-colors"
+                  >
+                    Try artifacts
+                    <svg
+                      className="w-5 h-5 text-white"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                    </svg>
+                  </Link>
                 </div>
 
                 {/* Content Area Wrapper */}
