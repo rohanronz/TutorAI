@@ -1,26 +1,160 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #08090b;
+  --foreground: #f0f0f2;
+  --surface: #111318;
+  --muted: #8b8f96;
+  --border: #1e2128;
+  --accent: #8b5cf6;
+  --accent-hover: #7c3aed;
+  --section-spacing: 5rem;
+  --container-max: 72rem;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
+  --color-surface: var(--surface);
+  --color-muted: var(--muted);
+  --color-border: var(--border);
+  --color-accent: var(--accent);
+  --color-accent-hover: var(--accent-hover);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
   }
+}
+
+html {
+  scroll-behavior: smooth;
+  color-scheme: dark;
 }
 
 body {
   background: var(--background);
+  background-image: 
+    radial-gradient(
+      circle at 50% -20%,
+      rgba(139, 92, 246, 0.15),
+      transparent 70%
+    ),
+    radial-gradient(
+      circle at 0% 0%,
+      rgba(139, 92, 246, 0.05),
+      transparent 40%
+    ),
+    radial-gradient(
+      circle at 100% 100%,
+      rgba(139, 92, 246, 0.05),
+      transparent 40%
+    );
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-geist-sans), system-ui, sans-serif;
+  letter-spacing: -0.01em;
+  line-height: 1.6;
+  margin: 0;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  letter-spacing: -0.03em;
+  line-height: 1.1;
+}
+
+.glass-panel {
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+}
+
+.text-gradient {
+  background: linear-gradient(to bottom right, #fff 30%, rgba(255, 255, 255, 0.5));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Artifact output: confine scroll to container, prevent scroll anchoring jumps */
+.artifacts-output {
+  overflow-anchor: none;
+}
+
+/* Report preview: ensure title text appears above illustration SVG */
+.c1-report-preview_title-container {
+  z-index: 1;
+}
+
+/* Presentation mode: fixed overlay when View/expanded (showAll), independent of scroll */
+.artifacts-output .c1-artifact-share-modal,
+.artifacts-output .c1-slideshow-container .c1-presentation-layout-grid-desktop:not(.c1-presentation-layout-grid-desktop--focus),
+.artifacts-output .c1-slideshow-container .c1-presentation-layout-grid-tablet:not(.c1-presentation-layout-grid-tablet--focus) {
+  position: fixed !important;
+  inset: 0 !important;
+  z-index: 50 !important;
+  background: #0a0a0a !important;
+  max-height: none !important;
+  border-radius: 0 !important;
+}
+
+/* Override C1/Crayon UI card backgrounds to match black theme (tutor chat only) */
+.tutor-c1-context .c1-component,
+.tutor-c1-context .c1-component > div,
+.tutor-c1-context [class*="c1-"],
+.tutor-c1-context [class*="crayon-"] {
+  background: transparent !important;
+  background-color: transparent !important;
+}
+
+/* Target card-like containers within C1 components */
+.tutor-c1-context .c1-component [class*="card"],
+.tutor-c1-context .c1-component [class*="Card"],
+.tutor-c1-context .c1-component [class*="container"],
+.tutor-c1-context .c1-component [class*="content"] {
+  background: transparent !important;
+  background-color: transparent !important;
+  border: none !important;
+}
+
+/* Ensure C1Component takes full width and has black background */
+.tutor-c1-context .c1-component,
+.tutor-c1-context .c1-component > div,
+.tutor-c1-context .c1-component [class*="container"],
+.tutor-c1-context .c1-component [class*="wrapper"] {
+  width: 100% !important;
+  max-width: 100% !important;
+  min-width: 100% !important; /* Ensure it doesn't shrink */
+  background-color: #0a0a0a !important;
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+  box-sizing: border-box !important;
+}
+
+/* Ensure consistent width */
+.tutor-c1-context .c1-component [class*="card"],
+.tutor-c1-context .c1-component [class*="Card"] {
+  width: 100% !important;
+  border-radius: 1rem !important;
+  border: none !important;
+}
+
+/* Remove borders from tables in C1 components */
+.tutor-c1-context .c1-component table,
+.tutor-c1-context .c1-component th,
+.tutor-c1-context .c1-component td,
+.tutor-c1-context .c1-component tr {
+  border: none !important;
+  border-color: transparent !important;
+}
+
+/* Override Crayon card borders specifically */
+.tutor-c1-context .crayon-card-card,
+.tutor-c1-context .c1-component .crayon-card-card {
+  border: none !important;
+  border-color: transparent !important;
 }

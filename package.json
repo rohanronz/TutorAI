@@ -9,7 +9,12 @@
     "lint": "eslint"
   },
   "dependencies": {
+    "@crayonai/react-ui": "^0.9.15",
+    "@crayonai/stream": "^0.6.4",
+    "@thesysai/genui-sdk": "^0.8.0",
+    "motion": "^12.29.2",
     "next": "16.1.6",
+    "openai": "^6.17.0",
     "react": "19.2.3",
     "react-dom": "19.2.3"
   },
